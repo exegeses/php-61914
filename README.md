@@ -4,7 +4,9 @@
 <img src="https://img.shields.io/badge/PHP-8993BF?style=for-the-badge&logo=php&logoColor=white"><img src="https://img.shields.io/badge/MySQL-4D9EB1?style=for-the-badge&logo=mysql&logoColor=white">
 
 > Curso de PHP y mySQL |    
-> Lunes y Miércoles 19hs a 22hs |    
+> Lunes y Miércoles 19hs a 22hs |  
+> Desde 06/03 hasta 19/04  |
+> 14 clases |  
 > Código 61914 |    
 > sensei: Marcos Pinardi |    
 
