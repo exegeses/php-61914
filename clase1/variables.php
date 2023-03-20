@@ -1,6 +1,6 @@
 <?php
 
-    $numero = 156;
+    $numero = 140;
     $curso = 'PHP y MySQL';
     echo 'El número es: ', $numero;
 ?>
@@ -12,5 +12,5 @@
                 FROM productos
                 WHERE precio <= ".$precioMax;
 
-
+    echo $numero;
 
