@@ -1,0 +1,10 @@
+27/03/2023 23:12:23
+Mensaje: Division by zero
+Archivo: /Users/marcos/Documents/Cursos/PHP-y-MySQL/php-61914/clase6/errores.php
+Línea nº: 7
+--------------------
+27/03/2023 23:17:50
+Mensaje: Unsupported operand types: int / string
+Archivo: /Users/marcos/Documents/Cursos/PHP-y-MySQL/php-61914/clase6/errores.php
+Línea nº: 7
+--------------------
