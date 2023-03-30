@@ -8,9 +8,11 @@
 <?php
     //ejemplo de concatenacion
    $precioMax = 12000;
+   $vendedor = 'elCarlos';
    $sql = "SELECT nombre, precio 
                 FROM productos
-                WHERE precio <= ".$precioMax;
+                WHERE precio <= ".$precioMax."
+                  AND verdador '".$vendedor."'";
 
     echo $numero;
 
