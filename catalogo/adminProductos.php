@@ -22,7 +22,6 @@
                     <th>Precio</th>
                     <th>Marca</th>
                     <th>Categoria</th>
-                    <th>Descripcion</th>
                     <th colspan="2">
                         <a href="" class="btn btn-outline-secondary">
                             Agregar
@@ -42,7 +41,6 @@
                     </td>
                     <td><?= $producto['mkNombre'] ?></td>
                     <td><?= $producto['catNombre'] ?></td>
-                    <td><?= $producto['prdDescripcion'] ?></td>
                     <td>
                         <a href="" class="btn btn-outline-secondary">
                             Modificar
