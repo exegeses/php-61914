@@ -22,6 +22,29 @@
         }
     }
 
+function verProductoPorID() : array | false
+{
+    $idProducto = $_GET['idProducto'];
+    $link = conectar();
+    $sql = "SELECT *, mkNombre, catNombre
+                    FROM productos p
+                    JOIN marcas m
+                      ON p.idMarca =  m.idMarca
+                    JOIN categorias c
+                      ON c.idCategoria = p.idCategoria
+               WHERE idProducto = ".$idProducto;
+    try {
+        $resultado = mysqli_query( $link, $sql );
+        $producto = mysqli_fetch_assoc($resultado);
+        return $producto;
+    }
+    catch ( Exception $e){
+        /* log de errores y/o redirección */
+        echo $e->getMessage();
+        return false;
+    }
+}
+
     function subirImagen() : string
     {
         //si no envían imagen
