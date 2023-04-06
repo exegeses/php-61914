@@ -22,6 +22,59 @@
         }
     }
 
+    function subirImagen() : string
+    {
+        //si no envían imagen
+        $prdImagen = 'noDisponible.png';
+
+        //si ENVIARON una imagen
+        if( $_FILES['prdImagen']['error'] == 0 ){
+            $ruta = 'productos/';
+            $tmp = $_FILES['prdImagen']['tmp_name'];
+            ## renombramos archivo
+            $time = time();
+            $ext = pathinfo($_FILES['prdImagen']['name'], PATHINFO_EXTENSION);
+            $prdImagen = $time.'.'.$ext;
+            #### movemos archivo
+            move_uploaded_file( $tmp, $ruta.$prdImagen );
+        }
+
+        return $prdImagen;
+    }
+
+    function agregarProducto() : bool
+    {
+        $prdNombre = $_POST['prdNombre'];
+        $prdPrecio = $_POST['prdPrecio'];
+        $idMarca = $_POST['idMarca'];
+        $idCategoria = $_POST['idCategoria'];
+        $prdDescripcion = $_POST['prdDescripcion'];
+        $prdImagen = subirImagen();
+
+        $link = conectar();
+        $sql = "INSERT INTO productos
+                    VALUES
+                    ( 
+                         DEFAULT,
+                         '".$prdNombre."',
+                         ".$prdPrecio.",
+                         ".$idMarca.",
+                         ".$idCategoria.",
+                         '".$prdDescripcion."',
+                         '".$prdImagen."',
+                         1
+                     )";
+        try {
+            $resultado = mysqli_query($link, $sql);
+            return $resultado;
+        }
+        catch ( Exception $e ){
+            echo $e->getMessage();
+            return  false;
+        }
+
+    }
+
 /*
  * listarProductos()
  * verProductoPorID()
