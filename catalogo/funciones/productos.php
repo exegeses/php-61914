@@ -47,8 +47,13 @@ function verProductoPorID() : array | false
 
     function subirImagen() : string
     {
-        //si no envían imagen
+        //si no envían imagen [agregar]
         $prdImagen = 'noDisponible.png';
+
+        //si no envían imagen [modificar]
+        if( isset($_POST['imgActual']) ){
+            $prdImagen = $_POST['imgActual'];
+        }
 
         //si ENVIARON una imagen
         if( $_FILES['prdImagen']['error'] == 0 ){
@@ -97,6 +102,38 @@ function verProductoPorID() : array | false
         }
 
     }
+
+    function modificarProducto() : bool
+    {
+        $link = conectar();
+        $idProducto = $_POST['idProducto'];
+        $prdNombre = $_POST['prdNombre'];
+        $prdPrecio = $_POST['prdPrecio'];
+        $idMarca = $_POST['idMarca'];
+        $idCategoria = $_POST['idCategoria'];
+        $prdDescripcion = $_POST['prdDescripcion'];
+        $prdImagen = subirImagen();
+
+        $sql = "UPDATE productos 
+                   SET 
+                       prdNombre = '".$prdNombre."',
+                       prdPrecio = ".$prdPrecio.",
+                       idMarca = ".$idMarca.",
+                       idCategoria = ".$idCategoria.",
+                       prdDescripcion = '".$prdDescripcion."',
+                       prdImagen = '".$prdImagen."'
+                  WHERE idProducto = ".$idProducto;
+
+        try {
+            $resultado = mysqli_query($link, $sql);
+            return $resultado;
+        }
+        catch ( Exception $e ){
+            echo $e->getMessage();
+            return  false;
+        }
+    }
+
 
 /*
  * listarProductos()
