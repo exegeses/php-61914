@@ -5,6 +5,12 @@ CREATE table roles
     rol varchar(30) unique not null
 );
 
+INSERT INTO roles
+    VALUES ( 1, 'usuario' ),
+           ( 2, 'vendedor' ),
+           ( 3, 'supervisor' ),
+           ( 4, 'administrador' );
+
 
 -- creación de tabla usuarios
 create table usuarios
@@ -14,7 +20,7 @@ create table usuarios
     apellido varchar(45) not null,
     email varchar(45) unique not null,
     clave varchar(76) not null,
-    idRol tinyint unsigned not null default '0',
+    idRol tinyint unsigned not null default '1',
         constraint usuarios_roles
             FOREIGN KEY (idRol)
                 REFERENCES roles (idRol),
