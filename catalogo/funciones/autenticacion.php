@@ -35,17 +35,32 @@
             }
             /*####  acá ya sabemos que se logueó bien  ###*/
             ###### RUTINA de autenticación
-            
+            $_SESSION['login'] = 1;
+            #registramos otros datos de usuario
+            $_SESSION['idUsuario'] = $datosUsuario['idUsuario'];
+            $_SESSION['nombre'] = $datosUsuario['nombre'];
+            $_SESSION['apellido'] = $datosUsuario['apellido'];
+            $_SESSION['idRol'] = $datosUsuario['idRol'];
+
+            //redireccionar a admin
+            header('location:admin.php');
         }
-
-
-
     }
 
-    function logout()
+    function logout() : void
     {
+        #borramos variables de sesión
+        session_unset();
+        ## eliminamos la sesión
+        session_destroy();
+
+        //redirección a formulario de login
+        header('refresh:3;url=formLogin.php');
     }
 
-    function autenticar()
+    function autenticar() : void
     {
+        if( !isset( $_SESSION['login'] ) ){
+            header('location:formLogin.php?error=2');
+        }
     }
