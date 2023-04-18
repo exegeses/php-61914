@@ -4,6 +4,9 @@
     require 'funciones/autenticacion.php';
         autenticar();
         noEsAdmin();
+    require 'funciones/conexion.php';
+    require 'funciones/usuarios.php';
+        $usuarios = listarUsuarios();
 	include 'layout/header.php';
 	include 'layout/nav.php';
 ?>
@@ -31,13 +34,15 @@
                 </tr>
             </thead>
             <tbody>
-
+<?php
+            while( $usuario = mysqli_fetch_assoc( $usuarios ) ){
+?>
                 <tr>
-                    <td><?= 'idUsuario' ?></td>
-                    <td><?= 'nombre' ?></td>
-                    <td><?= 'apellido' ?></td>
-                    <td><?= 'email' ?></td>
-                    <td><?= 'rol' ?></td>
+                    <td><?= $usuario['idUsuario'] ?></td>
+                    <td><?= $usuario['nombre'] ?></td>
+                    <td><?= $usuario['apellido'] ?></td>
+                    <td><?= $usuario['email'] ?></td>
+                    <td><?= $usuario['rol'] ?></td>
                     <td>
                         <a href="formModificarUsuario.php?idUsuario=<?= 'idUsuario' ?>" class="btn btn-outline-secondary">
                             Modificar
@@ -49,7 +54,9 @@
                         </a>
                     </td>
                 </tr>
-
+<?php
+            }
+?>
             </tbody>
         </table>
 
