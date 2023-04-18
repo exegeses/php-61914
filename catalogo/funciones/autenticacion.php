@@ -64,3 +64,11 @@
             header('location:formLogin.php?error=2');
         }
     }
+
+    function noEsAdmin() : void
+    {
+        if( $_SESSION['idRol'] != 4 ){
+            //código para informar intento de entrada
+            header('location:noAdmin.php');
+        }
+    }
