@@ -40,6 +40,7 @@
             $_SESSION['idUsuario'] = $datosUsuario['idUsuario'];
             $_SESSION['nombre'] = $datosUsuario['nombre'];
             $_SESSION['apellido'] = $datosUsuario['apellido'];
+            $_SESSION['email'] = $email;
             $_SESSION['idRol'] = $datosUsuario['idRol'];
 
             //redireccionar a admin

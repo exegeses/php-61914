@@ -18,6 +18,25 @@
         }
     }
 
+    function verUsuarioPorID() : array | false
+    {
+        $idUsuario = $_GET['idUsuario'];
+        $link = conectar();
+        $sql = "SELECT idUsuario, nombre, apellido, email,
+                           idRol
+                       FROM usuarios
+                   WHERE idUsuario = ".$idUsuario;
+        try {
+            $resultado = mysqli_query($link, $sql);
+            $usuario = mysqli_fetch_assoc($resultado);
+            return  $usuario;
+        }
+        catch ( Exception $e ){
+            echo $e->getMessage();
+            return false;
+        }
+    }
+
 
     function agregarUsuario() : bool
     {

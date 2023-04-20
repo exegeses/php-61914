@@ -44,12 +44,12 @@
                     <td><?= $usuario['email'] ?></td>
                     <td><?= $usuario['rol'] ?></td>
                     <td>
-                        <a href="formModificarUsuario.php?idUsuario=<?= 'idUsuario' ?>" class="btn btn-outline-secondary">
+                        <a href="formModificarUsuario.php?idUsuario=<?= $usuario['idUsuario'] ?>" class="btn btn-outline-secondary">
                             Modificar
                         </a>
                     </td>
                     <td>
-                        <a href="formEliminarUsuario.php?idUsuario=<?= 'idUsuario' ?>" class="btn btn-outline-secondary">
+                        <a href="formEliminarUsuario.php?idUsuario=<?= $usuario['idUsuario'] ?>" class="btn btn-outline-secondary">
                             Eliminar
                         </a>
                     </td>
