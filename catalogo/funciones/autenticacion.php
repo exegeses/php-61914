@@ -33,6 +33,7 @@
                 header('location:formLogin.php?error=1');
                 //return;
             }
+            else{
             /*####  acá ya sabemos que se logueó bien  ###*/
             ###### RUTINA de autenticación
             $_SESSION['login'] = 1;
@@ -45,6 +46,7 @@
 
             //redireccionar a admin
             header('location:admin.php');
+            }
         }
     }
 
