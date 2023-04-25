@@ -1,9 +1,9 @@
 <?php
 
     const SERVER = 'localhost';
-    const USUARIO = 'root';
-    const CLAVE = 'root';
-    const BASE = 'catalogo61914';
+    const USUARIO = 'root';//id20653045_marcos
+    const CLAVE = 'root';//cg30U_/y*xR&tb5)
+    const BASE = 'catalogo61914';//id20653045_catalogo
 
     function conectar() : mysqli
     {
